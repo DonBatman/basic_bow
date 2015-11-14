@@ -1,0 +1,8 @@
+License Textures: Stuart Jones - WTFPL
+-basic_bow_hit.png
+-basic_bow_arrow_uv.png
+
+License Textures (from original throwing mod):  PilzAdams - WTFPL
+-basic_bow_arrow_inv.png
+-basic_bow_inv.png
+-basic_bow_loaded.png

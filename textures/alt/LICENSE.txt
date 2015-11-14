@@ -1,0 +1,14 @@
+
+License Textures:  Nubilite - WTFPL ???
+-basic_bow_arrow_inv.png
+-basic_bow_inv.png
+-basic_bow_loaded.png
+
+
+https://forum.minetest.net/viewtopic.php?f=11&t=687&start=75
+
+[quote="Nubelite"]
+here are the templates i made, the bow does not look the best in game but the arrow is not to shabby. the bow and arrow are 256x256, the throwing is 100x100.
+
+Zip google download
+[url]https://docs.google.com/open?id=0B4ukn3a4vjv3cTdKRWh0MkVMRVU[/url][/quote]
