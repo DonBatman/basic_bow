@@ -193,7 +193,7 @@ function basic_bow:process_round(round)
 	local target = {object=nil, distance=10000}
 	local p1 = round.pos
 	local v1 = round.ray
-	for _,ref in ipairs(shooter.objects) do
+	for _,ref in ipairs(basic_bow.objects) do
 		local p2 = vector.add(ref.pos, ref.offset)
 		if p1 and p2 and ref.name ~= round.name then
 			local d = vector.distance(p1, p2)
@@ -380,7 +380,7 @@ mesh = "basic_bow_arrow.b3d",
 				self.node_pos = npos
 				self.state = "stuck"
 				stop_arrow(self.object, tpos, true)
-				minetest.sound_play("basic_bow_arrow", {pos = self.lastpos, gain = 0.8})
+				minetest.sound_play("basic_bow_arrow", {pos = self.lastpos, gain = 0.08, max_hear_distance = 3})
 			end
 			self.timer = 0
 		end
@@ -417,7 +417,7 @@ end
 				ent = obj:get_luaentity()
 			end
 			if ent then
-				minetest.sound_play("basic_bow_throw", {object=obj})
+				minetest.sound_play("basic_bow_throw", {object=obj, gain = 0.08})
 				local frame = get_animation_frame(dir)
 				obj:setyaw(yaw + math.pi)
 				obj:set_animation({x=frame, y=frame}, 0)
@@ -439,7 +439,7 @@ end
 							ent.state = "stuck"
 							stop_arrow(object, pos, true)
 							--basic_bow:play_node_sound(node)
-							minetest.sound_play("basic_bow_arrow", {gain = 0.0009})
+							minetest.sound_play("basic_bow_arrow", {gain = 0.08, max_hear_distance = 3})
 						end, obj, tpos, ppos)
 						return itemstack
 					end
@@ -480,8 +480,8 @@ minetest.register_craft( {
 output = 'basic_bow:target',
 recipe = {
 {'', '', ''},
-{'', 'default:pine_wood', ''},
-{'default:stick', '', 'default:stick'},
+{'', 'group:wood', ''},
+{'group:stick', 'group:stick', 'group:stick'},
 }
 })
 
@@ -499,22 +499,6 @@ minetest.register_craft({
 minetest.register_craft({
 	output = "basic_bow:arrow 20",
 	recipe = {
-		{"group:wood", "group:wood", "default:gravel"},
+		{"group:wood", "group:wood", "group:stone"},
 	}
 })
-
---[[
-minetest.register_craft({
-	output = "basic_bow:arrow 2",
-	recipe = {
-		{"default:stick", "default:stick", "default:flint"},
-	}
-})
-minetest.register_craft({
-	output = "basicbow:arrow 2",
-	recipe = {
-		{"default:flint", "default:stick", "default:stick"},
-	}
-})
---]]
-
